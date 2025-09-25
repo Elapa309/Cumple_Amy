@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: starfield 20s linear infinite;
+    opacity: 0.8;
+}
+
+.card-container {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.celebration-card {
+    width: 400px;
+    height: 600px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 70%, #533483 100%);
+    border: 2px solid #FFD700;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.5),
+        0 0 20px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 215, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.card-container:hover .celebration-card {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+}
+
+.card-content {
+    position: relative;
+    z-index: 10;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.birthday-icon {
+    margin-bottom: 30px;
+    animation: bounce 2s infinite;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+.interactive-button {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.interactive-button:hover {
+    background: white;
+    color: #4facfe;
+    transform: scale(1.1);
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    animation: confetti-fall 3s linear infinite;
+}
+.confetti:nth-child(2n) { background: #00BFFF; }
+.confetti:nth-child(3n) { background: #FF6347; }
+.confetti:nth-child(4n) { background: #32CD32; }
+.confetti:nth-child(5n) { background: #9370DB; }
+
+.floating-hearts {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255,255,255,0.7);
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle 2s linear infinite;
+}
+
+.control-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.control-button:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1.1);
+}
+.control-button.active {
+    background: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Animaciones */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+    from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5); }
+    to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.8); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes starfield {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+@keyframes burstOut {
+    0% { opacity: 1; transform: rotate(var(--angle)) translateX(0) scale(1); }
+    100% { opacity: 0; transform: rotate(var(--angle)) translateX(var(--distance)) scale(0); }
+}
+
+@media (max-width: 480px) {
+    .celebration-card {
+        width: 350px;
+        height: 500px;
+    }
+    .name { font-size: 2.5rem; }
+    .message { font-size: 1.3rem; }
+}

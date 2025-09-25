@@ -1,0 +1,96 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #d6bca9; /* fondo de la página */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'FF Providence Sans';
+  src: url('/Font/FFProvidenceSans.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.video-card {
+  width: 500px;      
+  height: 900px;     
+  background: #fcf3ec; 
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  overflow: hidden;
+  position: relative; /* necesario para el botón */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Contenedor del botón centrado */
+.button-container {
+  position: absolute;
+  bottom: 90px;   /* separación desde abajo */
+  left: 50%;
+  transform: translateX(-50%); /* solo centra en horizontal */
+  display: none; /* oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+/* Estilos del botón */
+.custom-button {
+  width: 200px;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'FF Providence Sans';
+  font-weight: bold;
+  background: #d6bca9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Animación de aparición */
+.custom-button.show {
+  animation: fadeZoomIn 0.8s ease forwards;
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.custom-button:hover {
+  background: #c5a890;
+  transform: scale(1.05);
+}
