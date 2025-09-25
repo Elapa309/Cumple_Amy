@@ -64,7 +64,7 @@ function createBurst() {
 function goToPage() {
     createBurst();
     setTimeout(() => {
-        window.location.href = "/Dedicatoria/Video.html";
+        window.location.href = "./Dedicatoria/Video.html";
     }, 1000);
 }
 

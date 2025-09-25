@@ -12,7 +12,7 @@ html, body {
 
 @font-face {
   font-family: 'FF Providence Sans';
-  src: url('/Font/FFProvidenceSans.otf') format('opentype');
+  src: url('../Font/FFProvidenceSans.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }

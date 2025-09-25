@@ -88,7 +88,7 @@ setTimeout(() => {
 }, 2000);
 
 btnFlores.addEventListener("click", () => {
-  window.location.href = "/Flores/Jardin.html"; // Cambia a la página deseada
+  window.location.href = "../Flores/Jardin.html"; // Cambia a la página deseada
 });
 
 // Inicializar: sin botones visibles

@@ -24,5 +24,5 @@ if (video) {
 
 // Función para ir a otra página
 function irPagina() {
-  window.location.href = "/Historia/Historia.html"; // 👉 cambia por tu destino
+  window.location.href = "../Historia/Historia.html"; // 👉 cambia por tu destino
 }
